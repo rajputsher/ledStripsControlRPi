@@ -1,0 +1,5 @@
+in etc/rc.local file add ...
+
+cd /home/..../webApp
+DEBUG=webapp:* npm start  & 
+exit 0
