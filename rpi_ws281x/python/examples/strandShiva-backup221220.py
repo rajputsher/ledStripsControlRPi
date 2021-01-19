@@ -189,7 +189,7 @@ if __name__ == '__main__':
     set_color(strip,Color(0,0,0))
     try:
         cmd = ''.join(sys.argv[1:])
-        cmd = cmd.lower()
+        
         #print("R:",rgb[1],"G:", rgb[0],"B:",rgb[2])
         while True:
             #set_color(strip, Color(255, 0,0))

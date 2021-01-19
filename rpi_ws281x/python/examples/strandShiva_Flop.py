@@ -58,6 +58,7 @@ def randomColor(strip,wait_ms=50):
 def set_color(strip,color):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
+        print(i,'-',strip.getPixelColor(i))
     strip.show()    
 
 # Define functions which animate LEDs in various ways.
@@ -67,7 +68,33 @@ def colorWipe(strip, color, wait_ms=50):
         strip.setPixelColor(i, color)
         strip.show()
         time.sleep(wait_ms/1000.0)
+
+# Define functions which animate LEDs in various ways.
+def halfhour(strip, wait_ms=100):
+    """Wipe color across display a pixel at a time."""
+    for i in range(strip.numPixels()/2):
+        a = strip.getPixelColor(i)
+        print(i,'-Before: ',strip.getPixelColor(i))
+        strip.setPixelColor(i, Color(0,0,0))
+        print(i,'-Flip: ',strip.getPixelColor(i))
+        strip.show()
+        time.sleep(wait_ms/1000.0)
+        strip.setPixelColor(i, a)
+        print(i,'-After: ',strip.getPixelColor(i))
+        strip.show()
         
+
+# Define functions which animate LEDs in various ways.
+def fullhour(strip, wait_ms=100):
+    """Wipe color across display a pixel at a time."""
+    for i in range(strip.numPixels()):
+        a = strip.getPixelColor(i)
+        strip.setPixelColor(i, Color(0,0,0))
+        strip.show()
+        strip.setPixelColor(i, a)
+        strip.show()
+        time.sleep(wait_ms/1000.0)
+      
 # Define functions which animate LEDs in various ways.
 def twoWayWipe(strip, color, wait_ms=50):
     """Wipe color across display a pixel at a time."""
@@ -197,6 +224,10 @@ if __name__ == '__main__':
                 rgb = options[cmd]
                 set_color(strip, Color(rgb[1], rgb[0],rgb[2]))
                 #colorWipe(strip, Color(rgb[1], rgb[0],rgb[2]), 10)
+            elif cmd == 'half':
+                halfhour(strip)
+            elif cmd == 'full':
+                fullhour(strip)   
             elif cmd == 'rainbow':
                 rainbow(strip)
             elif cmd == 'rainbowcycle':

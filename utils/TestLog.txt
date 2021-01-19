@@ -1,0 +1,28 @@
+cd /home/pi/rpi_ws281x/python;sudo PYTHONPATH=".:build/lib.linux-armv7l-2.7" python examples/strandShiva.py red
+
+
+('len(my_pid.splitlines())', '1816 python')
+('my_pid', '1812 sudo\n1816 python\n1839 idle3\n1851 sudo\n1855 python\n1856 sh\n')
+('Number of python:', 2)
+['1812 sudo', '1816 python', '1839 idle3', '1851 sudo', '1855 python', '1856 sh']
+sudo kill 1816
+('Options:', 'red')
+=====================================================================================
+
+
+cd /home/pi/rpi_ws281x/python;sudo PYTHONPATH=".:build/lib.linux-armv7l-2.7" python examples/strandShiva.py gold
+('len(my_pid.splitlines())', '1851 sudo')
+('my_pid', '1839 idle3\n1851 sudo\n1855 python\n1882 sudo\n1887 python\n1890 sh\n')
+('Number of python:', 2)
+['1839 idle3', '1851 sudo', '1855 python', '1882 sudo', '1887 python', '1890 sh']
+sudo kill 1855
+('Options:', 'gold')
+
+=====================================================================================
+
+('len(my_pid.splitlines())', '1882 sudo')
+('my_pid', '1839 idle3\n1882 sudo\n1887 python\n1906 sudo\n1910 python\n1911 sh\n')
+('Number of python:', 2)
+['1839 idle3', '1882 sudo', '1887 python', '1906 sudo', '1910 python', '1911 sh']
+sudo kill 1887
+('Options:', 'blue')
